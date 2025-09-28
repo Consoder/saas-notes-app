@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotesAI - Enterprise Notes Intelligence Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Page - Shows immediately -->
+    <div id="login-page" class="page-container">
+        <div class="login-hero">
+            <div class="login-container">
+                <div class="login-card">
+                    <div class="brand-header">
+                        <div class="brand-icon">🧠</div>
+                        <h1>NotesAI</h1>
+                        <p class="tagline">Enterprise Notes Intelligence Platform</p>
+                    </div>
+                    
+                    <!-- Demo Account Section -->
+                    <div class="demo-accounts-section">
+                        <h3>Quick Demo Access</h3>
+                        <p class="demo-description">Choose a test account to explore the platform</p>
+                        
+                        <div class="tenant-groups">
+                            <div class="tenant-group">
+                                <div class="tenant-header">
+                                    <div class="tenant-logo">A</div>
+                                    <div>
+                                        <h4>Acme Corporation</h4>
+                                        <span class="tenant-tag">Technology • Free Plan</span>
+                                    </div>
+                                </div>
+                                <div class="account-buttons">
+                                    <button class="demo-account-btn admin-btn" data-email="admin@acme.test">
+                                        <div class="account-info">
+                                            <div class="account-avatar">SJ</div>
+                                            <div>
+                                                <span class="account-name">Sarah Johnson</span>
+                                                <span class="account-role">Administrator</span>
+                                            </div>
+                                        </div>
+                                        <span class="login-arrow">→</span>
+                                    </button>
+                                    <button class="demo-account-btn member-btn" data-email="user@acme.test">
+                                        <div class="account-info">
+                                            <div class="account-avatar">MC</div>
+                                            <div>
+                                                <span class="account-name">Mike Chen</span>
+                                                <span class="account-role">Member</span>
+                                            </div>
+                                        </div>
+                                        <span class="login-arrow">→</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="tenant-group">
+                                <div class="tenant-header">
+                                    <div class="tenant-logo">G</div>
+                                    <div>
+                                        <h4>Globex Corporation</h4>
+                                        <span class="tenant-tag">Manufacturing • Free Plan</span>
+                                    </div>
+                                </div>
+                                <div class="account-buttons">
+                                    <button class="demo-account-btn admin-btn" data-email="admin@globex.test">
+                                        <div class="account-info">
+                                            <div class="account-avatar">ED</div>
+                                            <div>
+                                                <span class="account-name">Emma Davis</span>
+                                                <span class="account-role">Administrator</span>
+                                            </div>
+                                        </div>
+                                        <span class="login-arrow">→</span>
+                                    </button>
+                                    <button class="demo-account-btn member-btn" data-email="user@globex.test">
+                                        <div class="account-info">
+                                            <div class="account-avatar">AK</div>
+                                            <div>
+                                                <span class="account-name">Alex Kumar</span>
+                                                <span class="account-role">Member</span>
+                                            </div>
+                                        </div>
+                                        <span class="login-arrow">→</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider">
+                        <span>or sign in manually</span>
+                    </div>
+
+                    <!-- Manual Login Form -->
+                    <form id="login-form" class="login-form">
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required placeholder="admin@acme.test">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="password">Password</label>
+                            <input type="password" id="password" class="form-control" required placeholder="password">
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width" id="login-submit-btn">
+                            <span class="btn-text">Sign In</span>
+                            <span class="btn-loading hidden">⏳</span>
+                        </button>
+                    </form>
+
+                    <div id="login-error" class="alert alert-error hidden" role="alert"></div>
+
+                    <div class="login-footer">
+                        <p>All demo accounts use password: <code>password</code></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboard-page" class="page-container hidden">
+        <!-- Navigation Header -->
+        <nav class="dashboard-nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <div class="brand-icon">🧠</div>
+                    <span class="brand-name">NotesAI</span>
+                </div>
+                
+                <div class="nav-user">
+                    <div class="user-profile">
+                        <div class="user-avatar" id="user-avatar">U</div>
+                        <div class="user-details">
+                            <span class="user-name" id="user-name">User Name</span>
+                            <span class="user-tenant" id="user-tenant">Tenant • Role</span>
+                        </div>
+                    </div>
+                    <button id="logout-btn" class="btn btn--outline btn--sm">Sign Out</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Dashboard Content -->
+        <main class="dashboard-main">
+            <div class="dashboard-container">
+                <!-- Header Section -->
+                <div class="dashboard-header">
+                    <div class="header-content">
+                        <div>
+                            <h1>Dashboard</h1>
+                            <p class="header-description">Manage your intelligent notes and insights</p>
+                        </div>
+                        <button id="create-note-btn" class="btn btn--primary">
+                            <span class="btn-icon">+</span>
+                            Create Note
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Subscription Status Card -->
+                <div class="subscription-section">
+                    <div class="card subscription-card">
+                        <div class="card__body">
+                            <div class="subscription-header">
+                                <div class="plan-info">
+                                    <div class="plan-badge" id="plan-badge">FREE</div>
+                                    <div class="plan-details">
+                                        <h3 id="plan-name">Free Plan</h3>
+                                        <p id="plan-description">Basic notes with 3 note limit</p>
+                                    </div>
+                                </div>
+                                <div id="upgrade-section" class="upgrade-section hidden">
+                                    <button id="upgrade-btn" class="btn btn--primary">
+                                        Upgrade to Pro
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="usage-section">
+                                <div class="usage-stats">
+                                    <div class="stat-item">
+                                        <div class="stat-value">
+                                            <span id="notes-count">0</span>
+                                            <span class="stat-separator">/</span>
+                                            <span id="notes-limit">3</span>
+                                        </div>
+                                        <div class="stat-label">Notes Used</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="usage-bar-container">
+                                    <div class="usage-bar">
+                                        <div class="usage-fill" id="usage-fill"></div>
+                                    </div>
+                                </div>
+                                
+                                <div id="limit-warning" class="limit-warning hidden">
+                                    <div class="warning-icon">⚠️</div>
+                                    <div>
+                                        <strong>Note limit reached!</strong>
+                                        <p>Upgrade to Pro for unlimited notes and advanced features.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notes Section -->
+                <div class="notes-section">
+                    <div class="section-header">
+                        <h2>Your Notes</h2>
+                        <div class="notes-count-display">
+                            <span id="total-notes-display">0 notes</span>
+                        </div>
+                    </div>
+
+                    <!-- Empty State -->
+                    <div id="empty-state" class="empty-state hidden">
+                        <div class="empty-icon">📝</div>
+                        <h3>No notes yet</h3>
+                        <p>Create your first intelligent note to get started with AI-powered insights</p>
+                        <button class="btn btn--primary" onclick="document.getElementById('create-note-btn').click()">
+                            <span class="btn-icon">+</span>
+                            Create Your First Note
+                        </button>
+                    </div>
+
+                    <!-- Notes Grid -->
+                    <div id="notes-grid" class="notes-grid"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Note Modal -->
+    <div id="note-modal" class="modal-overlay hidden">
+        <div class="modal-backdrop" onclick="closeModal()"></div>
+        <div class="modal-container">
+            <div class="card modal-card">
+                <div class="modal-header">
+                    <div>
+                        <h3 id="modal-title">Create Note</h3>
+                        <p class="modal-subtitle">Add your thoughts and insights</p>
+                    </div>
+                    <button class="modal-close-btn" onclick="closeModal()">
+                        <span>×</span>
+                    </button>
+                </div>
+
+                <form id="note-form" class="modal-body">
+                    <div class="form-group">
+                        <label class="form-label" for="note-title">
+                            Title <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="note-title" 
+                            class="form-control" 
+                            required 
+                            placeholder="Enter a descriptive title..."
+                            maxlength="200"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="note-content">
+                            Content <span class="required">*</span>
+                        </label>
+                        <textarea 
+                            id="note-content" 
+                            class="form-control content-textarea" 
+                            required 
+                            placeholder="Write your note content here. You can use markdown formatting..."
+                            rows="8"
+                        ></textarea>
+                        <div class="form-help">Tip: Use markdown for formatting (# headers, **bold**, *italic*)</div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn--outline" onclick="closeModal()">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn--primary" id="save-note-btn">
+                            <span class="btn-text">Save Note</span>
+                            <span class="btn-loading hidden">⏳</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
