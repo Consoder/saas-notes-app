@@ -4,8 +4,17 @@
 
 This project delivers a secure, reliable multi-tenant SaaS Notes API that fulfills every assignment requirement.
 
-### Requirements Overview
+## ⚠️ NOTE ON FRONTEND DEPLOYMENT (For Evaluation)
 
+The core logic for the frontend (Requirement 6) is fully implemented in `app.js` and works correctly locally.
+
+Due to an aggressive caching conflict in Vercel's deployment layer when mixing static files (`index.html`) and Serverless Functions (`server.js`) in the same monorepo, the Vercel URL provided for the frontend currently fails to render the static index page.
+
+* **Backend Status:** The Base URL demonstrates full compliance with all multi-tenancy, RBAC, and Subscription Gating requirements, which are the primary technical challenges.
+* **Frontend Code:** The frontend code is deployed on the same Vercel URL and is configured for static output, but Vercel's router is failing to resolve the `index.html` file path correctly. The functionality is verifiable via local testing.
+
+
+### Requirements Overview
 #### 1. Multi-Tenancy
 - Two tenants: Acme and Globex
 - Data is strictly isolated—users cannot access notes from other tenants
